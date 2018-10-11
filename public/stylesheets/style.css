@@ -1,8 +1,10 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-
-a {
-  color: #00B7FF;
+.status__time {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
 }
