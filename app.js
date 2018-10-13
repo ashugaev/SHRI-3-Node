@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var statusRouter = require('./routes/status');
+var apiRouter = require('./routes/api');
+
+const events = require('./server/events.js');
 
 var app = express();
 
@@ -21,12 +24,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 app.use('/status', statusRouter);
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  res.status(404).send('<h1>Page not found</h1>');
 });
 
 // error handler
